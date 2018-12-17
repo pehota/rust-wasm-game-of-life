@@ -14,10 +14,29 @@
         align-items: center;
         justify-content: center;
       }
+      .menu-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+      .menu-container > * {
+        margin: 20px;
+      }
     </style>
   </head>
   <body>
-    <button id="toggle-loop"></button>
+    <div class="menu-container">
+      <div>
+        <label for="universe-state-selector"
+          >Choose initial universe state</label
+        >
+        <select id="universe-state-selector">
+          <option value="random">Random</option>
+          <option value="ship">Ship</option>
+        </select>
+      </div>
+      <button id="toggle-loop"></button>
+    </div>
     <canvas id="game-of-life-canvas"></canvas>
     <script src="./bootstrap.js"></script>
   </body>
