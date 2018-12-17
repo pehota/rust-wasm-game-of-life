@@ -1,54 +1,21 @@
 <meta charset="utf-8"/>
 
-# 🦀🕸️ `wasm-pack-template`
+# `Conway's Game of Life in Rust + WASM`
 
-A template for kick starting a Rust and WebAssembly project using
-[`wasm-pack`](https://github.com/rustwasm/wasm-pack).
+> An exersise in Rust and WASM implementing [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 
-This template is designed for compiling Rust libraries into WebAssembly and
-publishing the resulting package to NPM.
 
-* Want to use the published NPM package in a Website? [Check out
-  `create-wasm-app`.](https://github.com/rustwasm/create-wasm-app)
-* Want to make a monorepo-style Website without publishing to NPM? Check out
-  [`rust-webpack-template`](https://github.com/rustwasm/rust-webpack-template)
-  and/or
-  [`rust-parcel-template`](https://github.com/rustwasm/rust-parcel-template).
+## Pre-requisites
+* [Make sure you have Rust (v 1.30 and up) installed](https://www.rust-lang.org/tools/install)
+* [Make sure you have wasm-pack installed](https://rustwasm.github.io/wasm-pack/installer/)
+* [Make sure you have npm installed](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+* Make sure you have the `wasm32-unknown-unknown` target (run `rustup target list | grep wasm`)
 
-## 🔋 Batteries Included
+## Setup
+* Go to the `www` folder and run `npm i` in order to install all Javascript dependencies
+* Go to the game's root folder and run `wasm-pack build`
+   > This will install all dependencies needed for compiling the game to wasm (it takes some time)
+* Link the wasm module to npm by going into the newly generated folder `pkg` and running `npm link`. Then go to the `www` folder and run `npm link wasm-game-of-life`
 
-* [`wasm-bindgen`](https://github.com/rustwasm/wasm-bindgen) for communicating
-  between WebAssembly and JavaScript.
-* [`console_error_panic_hook`](https://github.com/rustwasm/console_error_panic_hook)
-  for logging panic messages to the developer console.
-* [`wee_alloc`](https://github.com/rustwasm/wee_alloc), an allocator optimized
-  for small code size.
-
-## 🚴 Usage
-
-### 🐑 Use `cargo generate` to Clone this Template
-
-[Learn more about `cargo generate` here.](https://github.com/ashleygwilliams/cargo-generate)
-
-```
-cargo generate --git https://github.com/rustwasm/wasm-pack-template.git --name my-project
-cd my-project
-```
-
-### 🛠️ Build with `wasm-pack build`
-
-```
-wasm-pack build
-```
-
-### 🔬 Test in Headless Browsers with `wasm-pack test`
-
-```
-wasm-pack test --headless --firefox
-```
-
-### 🎁 Publish to NPM with `wasm-pack publish`
-
-```
-wasm-pack publish
-```
+## Running the game
+* Go to the `www` folder and run `npm start`
