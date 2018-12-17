@@ -54,8 +54,9 @@ impl CellsGenerator {
     }
 
     pub fn ship(width: u32, height: u32) -> Vec<Cell> {
-        let alive_cell_indexes: Vec<u32> = vec![1];
-        Self::generate(width, height, |i| alive_cell_indexes.contains(&i))
+        let lightweight_ship_cells: Vec<u32> =
+            vec![1, width + 2, width + 3, width * 2 + 1, width * 2 + 2];
+        Self::generate(width, height, |i| lightweight_ship_cells.contains(&i))
     }
 }
 
