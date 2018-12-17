@@ -26,7 +26,8 @@ pub enum Cell {
     Alive = 1,
 }
 
-enum UniverseInit {
+#[wasm_bindgen]
+pub enum UniverseInit {
     Random,
     Ship,
 }
